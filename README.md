@@ -26,10 +26,10 @@ This results in a 2 x 2 x 2 design with eight conditions.
 The whole project is coded with R version 4.1.3 (http://www.r-project.org}). Most important package for the simulation study is the R-package poLCA (version 1.4.1, https://cran.r-project.org/web/packages/poLCA/index.html).
 
 Overview of all used packages:
-dplyr 1.0.8
-confreq 1.5.6
-poLCA 1.6.0
-MASS 7.3
+dplyr 1.0.8 \ 
+confreq 1.5.6 
+poLCA 1.6.0\ 
+MASS 7.3\
 resample 0.4
 vcd 1.4-9
 doRNG 1.8.2
