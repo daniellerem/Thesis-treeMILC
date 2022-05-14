@@ -28,3 +28,6 @@ for(i in 1:nconds){
   covar_true[[i]]                  <-  apply(covar_nsim_true[[i]], MARGIN = c(1, 2), FUN = mean)       # average over nsim
   prop_true[[i]]                   <-  colMeans(bind_rows(prop_x_nsim_true[[i]][[j]])) 
 }#end nconds
+
+save(covar_true, file = "SimulatedCovariates.RData")
+save(prop_true, file = "SimulatedProportions.RData")

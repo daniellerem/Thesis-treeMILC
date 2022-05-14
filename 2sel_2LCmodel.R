@@ -38,8 +38,8 @@ posteriors2 = function(bootdat,  k){
   for(v in 1:ncol(longdat)){                                                     # replace 3's and 4's with 2's in all columns
     ordat2[,v] <- sapply(ordat[,v],function(x) replace(x, x%in% c(3,4), 2))
   }
-  
-  posdat = cbind(ordat,                                                          #use the original data with categories 1 till 4
+
+  posdat = cbind(ordat,                                                          #use the original data with all 4 categories 
                  poLCA.posterior(lc = LCAr, y = ordat2[,-6]))                    #use the data with only categories 1 and 2 to calculate the posteriors
                                                                                  #exclude the 'trueclass' column from posterior calculation
                                          
