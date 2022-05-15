@@ -23,7 +23,7 @@ This results in a 2 x 2 x 2 design with eight conditions.
 
 
 # Software requirements 
-The whole project is coded with R version 4.1.3 (http://www.r-project.org}). Most important package for the simulation study is the R-package poLCA (version 1.4.1, https://cran.r-project.org/web/packages/poLCA/index.html).
+The whole project is coded with R version 4.1.3 (http://www.r-project.org}). Most important package for the simulation study is the R-package poLCA (version 1.4.1, https://cran.r-project.org/web/packages/poLCA/index.html). An overview of all used packages can be seen below.
 
 Overview of all used packages:
 dplyr 1.0.8\
@@ -56,13 +56,24 @@ The repository contains the following files:
 | Folders/Files              | Description   |
 | -----------------          | ------------- |
 |1_Data_Generation           |Folder with scripts for data generation|
-|1_TOP_generate_data.R       |Script to generate the data for the simulation study|
-|1a_specify_simconditions.R  |Script in which the simulation conditions are specified|
-|1b_simulate_dataset.R       |Script in which the dataset generation steps are specified|
-|1c_generate_bootstraps.R    |Script in which the bootstraps are drawn (first MILC step)|
+|/1_TOP_generate_data.R       |Script to generate the data for the simulation study|
+|/1a_specify_simconditions.R  |Function for specifying the simulation conditions|
+|/1b_simulate_dataset.R       |Function for the dataset generation|
+|/1c_generate_bootstraps.R    |Function to draw the bootstraps (first MILC step)|
 |2_MILCandtreeMILC           |Folder with scripts for application of methods|
-|3_PerformanceMeasures       |Folder with scripts for calculation of performance measures|
+|2_TOP_MILC.R                 |Script to apply MILC on the simulated datasets|
+|2_TOP_MILC_parallel.R        |Parallelised script to apply MILC| 
+|2a_LC4_model.R               |Function for MILC with 4 classes|
+|2_TOP_treeMILC.R                 |Script to apply tree-MILC on the simulated datasets|
+|2_TOP_treeMILC_parallel.R        |Parallelised script to apply tree-MILC| 
+|2b_LC2sel_model.R            |Function for the selection error part of tree-MILC|
+|2c_LC3meas_model.R            |Function for the measurement error part of tree-MILC|
+|3_TOP_PerformanceMeasures       |Folder with scripts for calculation of performance measures|
+|3a_proportions.R              |Function to calculate measures for class size estimates|
+|3b_covariates.R           |Function to calculate measures for class-covariate estimates|
 |4_Tables_and_figures        |Folder with scripts for producing tables and figures|
+|4_Tables.R             |Script to create tables of results|
+|4_Figures.R               |Script to create figures of the results|
 |Thesis.pdf                  |Thesis manuscript|
 
 
@@ -84,5 +95,5 @@ To reproduce the simulation study, follow these steps:
 
 
 # Access
-This archive is publicly available and can be used by anyone. For any questions or comments, you can contact Dani\"elle Remmerswaal (d.m.remmerswaal@uu.nl). 
+This archive is publicly available. No external data is necessary, . For any questions or comments, you can contact Daniëlle Remmerswaal (d.m.remmerswaal@uu.nl). 
 
