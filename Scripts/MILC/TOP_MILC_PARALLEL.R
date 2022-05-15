@@ -81,6 +81,7 @@ source("FUN_LC4.R")
 SimulationTotalTime = Sys.time()-starttime
 SimulationTotalTime
 
+
 #remove empty lists and store both estimates in seperate lists of lists named prop_x_boot and covar_boot
 
 for(i in 1:nconds){  

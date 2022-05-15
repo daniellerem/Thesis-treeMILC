@@ -49,9 +49,9 @@ The simulation study consists of three parts:
 2. Apply MILC and tree-MILC
 3. Calculate performance measures
 
-These three parts can be found in the folders `Data', 'Scripts' and 'post-processing'. 
+These parts can be found in the folders `Data`, `Scripts` and `post-processing`. 
+A fourth folder `Output` contains scripts to generate the tables and figures presented in the thesis.
 
-The first character of the name of each script is a number referring to which of the three parts the script belongs. So the names all the scripts related to data generation begin with a '1'. In the scripts starting with a '4', the code for the presentation of the results in graphs and tables can be found. 
 
 
 The repository contains the following files:
@@ -83,15 +83,15 @@ The repository contains the following files:
 
 To reproduce the simulation study, follow these steps:
 
-## Dataset generation (Folder 'Data')
+## Dataset generation (Folder `Data`)
 
 1. Make sure your working directory is set at the right folder
-2. Run the 'TOP_generate_data.R' script  - set parameter 'nsim' to the number of desired simulation iterations (default is 100). 
+2. Run the `TOP_generate_data.R` script  - set parameter `nsim` to the number of desired simulation iterations (default is 100). 
 3. Save the generated datasets and the population estimates 
 
-## Apply MILC and tree-MILC to the simulated data (Folder 'Scripts')
+## Apply MILC and tree-MILC to the simulated data (Folder `Scripts`)
 
-1. Make sure the datafile 'simbootdat.RData' generated in the 'Data' folder is loaded. 
+1. Make sure the datafile `simbootdat.RData` generated in the `Data` folder is loaded. 
 2. Choose a TOP script (sequential or parallel) to run MILC with
 3. Choose a TOP script (sequential or parallel) to run tree-MILC with
 4. Save the results for both methods
@@ -100,16 +100,16 @@ To reproduce the simulation study, follow these steps:
 The simulations take a long time, for nsim=100 it takes xx hours for MILC, and xx hours for tree-MILC to run. For this reason, parallelised scripts are designed. The workers of the cores in the scripts are divided over the conditions. Since nconds = 8 in this study, the number of cores useful to speed up the process are powers of 2 with a maximum of 2^3=8. Using 4 cores takes the same time as using 5, 6 or 7 cores, all make the process approximately 4 times as fast. 
 The sequential and parallelised versions of the scripts give the same results.
 
-## Calculate performance measures ('Folder Post-processing')
-1. Make sure the datafiles of the population estimates (from folder 'Data'), and of the MILC and tree-MILC estimates (from folder 'Scripts') are loaded
-2. Run script 'CalculatePerformanceMeasues.R' to - as the name says-  calculate the performance measures for both methods. 
-3. Save the whole workspace to be able to use it to create the figures and tables (folder 'Output')
+## Calculate performance measures (`Folder Post-processing`)
+1. Make sure the datafiles of the population estimates (from folder `Data`), and of the MILC and tree-MILC estimates (from folder `Scripts`) are loaded
+2. Run script `CalculatePerformanceMeasues.R` to - as the name says-  calculate the performance measures for both methods. 
+3. Save the whole workspace to be able to use it to create the figures and tables (folder `Output`)
 
-## Present results in figures and tables (Folder 'Output')
+## Present results in figures and tables (Folder `Output`)
 1. Make sure the workspace with all the performance measures for MILC and tree-MILC are loaded
-2. Run script 'Tables' to generate the tables as presented in the appendix of the thesis
-3. Run script 'Plots_prop_estimates' to generate the faceted ggplots presented in the body of the thesis for the class size estimates
-4. Run script 'Plots_cov_estimates' to generate the faceted ggplots presented in the body of the thesis for the covariate-class relation estimates
+2. Run script `Tables` to generate the tables as presented in the appendix of the thesis
+3. Run script `Plots_prop_estimates` to generate the faceted ggplots presented in the body of the thesis for the class size estimates
+4. Run script `Plots_cov_estimates` to generate the faceted ggplots presented in the body of the thesis for the covariate-class relation estimates
 
 
 
