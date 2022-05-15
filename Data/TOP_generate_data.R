@@ -1,4 +1,8 @@
+##########################################################################################
 
+#                     Script to generate the datasets for the simulations                #
+
+##########################################################################################
 
 options(scipen = 999)                                                     #scientific notation off
 
@@ -10,9 +14,9 @@ nconds = 8                                                                #numbe
 set.seed(123)
 
 #load function used for the dataset generation
-source("1a_specify_simconditions.R")                                            
-source("1b_simulate_dataset.R")
-source("1c_generate_bootstraps.R")
+source("FUN_specify_simconditions.R")                                            
+source("FUN_simulate_dataset.R")
+source("FUN_generate_bootstraps.R")
 
 #load packages necessary for the dataset generation
 library(poLCA) 
@@ -63,3 +67,5 @@ for(i in 1:nconds){
 
 save(covar_true, file = "SimulatedCovariates.RData")                            #the class size estimates
 save(prop_true,  file = "SimulatedProportions.RData")                           #the class-covariate estimates
+
+#important: save or move the population values of the generated datasets to the post-processing folder

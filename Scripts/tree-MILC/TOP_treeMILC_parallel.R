@@ -1,4 +1,11 @@
-#2_TOP_treeMILC
+##########################################################################################
+
+#        PARALLELISED version of   Script to apply tree-MILC on the generated datasets  #
+
+##########################################################################################
+
+
+
 
 #packages
 library(poLCA) 
@@ -15,8 +22,8 @@ nconds = 8
 
 set.seed(123)
 load("Simdata.RData")
-source("2b_LCmodel2.R")                                                   
-source("2c_LCmodel3.R")                                                   
+source("FUN_LC2sel.R")                                                   
+source("FUN_LC3meas.R")                                                    
 
 impdats2 <- rep(list(rep(list(vector("list", nboot)),nsim)), nconds)
 impdats3 <- rep(list(rep(list(vector("list", nboot)),nsim)), nconds)
@@ -54,9 +61,10 @@ res_tree <-  foreach(i=1:nconds,
                      .maxcombine = nsim, 
                      .multicombine = T, 
                      .packages=c("poLCA", "confreq", "dplyr", "resample", "parallel"), 
-                     .combine="comb", .init=list(list(), list()) )%dorng%{   
-  source("2b_LCmodel2.R")                                                   
-  source("2c_LCmodel3.R") 
+                     .combine="comb", .init=list(list(), list()) )%dorng%{  
+                       
+  source("FUN_LC2sel.R")                                                   
+  source("FUN_LC3meas.R")   
   #START
   for(j in 1:nsim){                                                             
     
@@ -89,25 +97,30 @@ res_tree <-  foreach(i=1:nconds,
 
     }#end loop over nboot
   }#end loop over nsim
-  return(list(prop_x_boot,covar_boot))
+  return(list(prop_x_boot,covar_boot)) #return the two estimates in a list
 }#end loop over conditions
 
 SimulationTotalTime = Sys.time()-starttime
 SimulationTotalTime
 
 
-  prop_x_boot     <-  rep(list(rep(list(vector("list", nboot)),nsim)), nconds)
-  covar_boot      <-  rep(list(rep(list(array(NA,dim = c(4,4,nboot), dimnames=NULL)), nsim)), nconds)
-
+  prop_x_bootTREE     <-  rep(list(rep(list(vector("list", nboot)),nsim)), nconds)
+  covar_bootTREE      <-  rep(list(rep(list(array(NA,dim = c(4,4,nboot), dimnames=NULL)), nsim)), nconds)
+  
+  
+#remove redundant empty lists and store the estimates in corresponding lists
 for(i in 1:nconds){                                                             # loop over conditions
   cat(i)
   for(j in 1:nsim){                                                             # loop over simulation iterations
     for(k in 1:nboot){ 
-        prop_x_boot[[i]][[j]][[k]]  <- res_tree[[1]][[i]][[i]][[j]][[k]]
-        covar_boot[[i]][[j]][,,k]   <- res_tree[[2]][[i]][[i]][[j]][,,k]
+      prop_x_bootTREE[[i]][[j]][[k]]  <- res_tree[[1]][[i]][[i]][[j]][[k]]
+        covar_bootTREE[[i]][[j]][,,k]   <- res_tree[[2]][[i]][[i]][[j]][,,k]
     }
   }
 }
 
+  save(prop_x_bootTREE, file = "treeMILCproportions.RData")                          
+  save(covar_bootTREE, file = "treeMILCcovariates.RData")
+  #important: save or move the results to the post-processing folder
 
 stopCluster(myCluster)

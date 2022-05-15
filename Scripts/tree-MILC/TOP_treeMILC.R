@@ -1,20 +1,29 @@
-#2_TOP_treeMILC
+
+
+##########################################################################################
+
+#                     Script to apply tree-MILC on the generated datasets                #
+
+##########################################################################################
+
+#necessary packages
 library(poLCA) 
 library(confreq) 
 library(dplyr) 
 
-options(scipen = 999)
+options(scipen = 999)                                                     #scientific notation off
 
-nsim   = 100  
-nsize  = 5000 
-nboot  = 5
-nconds = 8
+nsim   = 100                                                              #number of simulation iterations
+nsize  = 5000                                                             #sample size of each dataset
+nboot  = 5                                                                #number of bootstrapped datasets per simulated dataset
+nconds = 8                                                                #number of simulation conditions
 
 set.seed(123)
+
 load("simbootdat.RData")
 
-source("2b_LCmodel2.R")                                                   
-source("2c_LCmodel3.R")                                                   
+source("FUN_LC2sel.R")                                                   
+source("FUN_LC3meas.R")                                                   
 
 #impdats <- rep(list(rep(list(vector("list", nboot)),nsim)), nconds)
 impdats2 = rep(list(rep(list(vector("list", nboot)),nsim)), nconds)
@@ -68,9 +77,10 @@ for(i in 1:nconds){                                                             
     }#end loop over nboot 
   }#end loop over nsim 
   
-  save(prop_x_bootTREE, file = "impdattree_prop.RData")                          
-  save(covar_bootTREE, file = "impdattree_covar.RData")
-  setTxtProgressBar(pb, i)  #show progress bar for the conditions 
+  save(prop_x_bootTREE, file = "treeMILCproportions.RData")                          
+  save(covar_bootTREE, file = "treeMILCcovariates.RData")
+  #important: save or move the results to the post-processing folder
+  setTxtProgressBar(pb, i)     #show progress bar for the conditions 
   Sys.time()-init
 }#end loop over conditions
 

@@ -1,10 +1,21 @@
-##PARALLEL  versino of MILC script
+##########################################################################################
 
-options(scipen = 999)
-nsim   = 100  
-nsize  = 5000 
-nboot  = 5
-nconds = 8
+#        PARALLELISED version of   Script to apply MILC on the generated datasets       #
+
+##########################################################################################
+
+
+
+
+options(scipen = 999)                                                     #scientific notation off
+
+nsim   = 100                                                              #number of simulation iterations
+nsize  = 5000                                                             #sample size of each dataset
+nboot  = 5                                                                #number of bootstrapped datasets per simulated dataset
+nconds = 8                                                                #number of simulation conditions
+
+set.seed(123)
+
 
 #PACKAGES/REQUIREMENTS
 library(poLCA) 
@@ -12,6 +23,7 @@ library(confreq)
 library(dplyr) 
 library(resample)
 library(parallel)
+library(doParallel)
 library(doRNG)
 
 
@@ -47,7 +59,7 @@ resMILC <-  foreach(i=1:nconds,
                     .packages=c("poLCA", "confreq", "dplyr", "resample", "parallel", "bigstatsr"), 
                     .combine="comb", 
                     .init=list(list(), list() ) )%dorng%{ 
-source("2a_LCmodel.R")                                                   
+source("FUN_LC4.R")                                                   
   for(j in 1:nsim){                                                            
     
     for(k in 1:nboot){ 
@@ -77,5 +89,7 @@ for(i in 1:nconds){
       prop_x_boot[[i]][[j]][[k]] <- resMILC[[1]][[i]][[i]][[j]][[k]]
       covar_boot[[i]][[j]][,,k]  <- resMILC[[2]][[i]][[i]][[j]][,,k]
       }}}
-
+save(prop_x_boot, file = "MILCproportions.RData")                          
+save(covar_boot, file = "MILCcovariates.RData")
+#important: save or move the results to the post-processing folder
 
