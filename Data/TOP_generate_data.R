@@ -6,7 +6,7 @@
 
 options(scipen = 999)                                                     #scientific notation off
 
-nsim   = 100                                                              #number of simulation iterations
+nsim   = 1000                                                              #number of simulation iterations
 nsize  = 5000                                                             #sample size of each dataset
 nboot  = 5                                                                #number of bootstrapped datasets per simulated dataset
 nconds = 8                                                                #number of simulation conditions

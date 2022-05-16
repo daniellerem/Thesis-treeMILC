@@ -103,8 +103,8 @@ To reproduce the simulation study, follow these steps:
 4. Make sure you save the results for both methods
 
 ### Parallelised versions of the scripts
-The simulations take a long time, for nsim=100 it takes xx hours for MILC, and xx hours for tree-MILC to run. For this reason, parallelised scripts are designed. The workers of the cores in the scripts are divided over the conditions. Since nconds = 8 in this study, the number of cores useful to speed up the process are powers of 2 with a maximum of 2^3=8. Using 4 cores takes the same time as using 5, 6 or 7 cores, all make the process approximately 4 times as fast. 
-The sequential and parallelised versions of the scripts give the same results.
+The simulations take a long time, for 100 simulation iterations (nsim=100) it takes apprximately 3.5 hours for MILC, and 8 hours for tree-MILC to run. For this reason, parallelized scripts are designed to be able to run a simulation study with 1000 iterations in a feasible time. The workers of the cores in the scripts are divided over the conditions. Since there are eight conditions (nconds = 8) in this study, the number of cores useful to speed up the process are powers of 2 with a maximum of 2^3=8. Using 4 cores takes the same time as using 5, 6 or 7 cores, all make the process approximately 4 times as fast. 
+The sequential and parallelized versions of the scripts give the same results since in both versions a seed (123) is set.
 
 ## Calculate performance measures (`Folder Post-processing`)
 1. Make sure the datafiles of the population estimates (from folder `Data`), and of the MILC and tree-MILC estimates (from folder `Scripts`) are loaded
@@ -118,8 +118,7 @@ The sequential and parallelised versions of the scripts give the same results.
 4. Run script `Plots_cov_estimates` to generate the faceted ggplots presented in the body of the thesis for the covariate-class relation estimates
 
 
-
-
+---
 
 # Ethics
 All the data is simulated. The research protocol has been approved by the Ethical Review Board of the Faculty of Social and Behavioural Sciences of Utrecht University.

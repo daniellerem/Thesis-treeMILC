@@ -1,12 +1,15 @@
-#4 Plots and figures
+##########################################################################################
+
+#       Script to visualise results of MILC and tree-MILC: class-covariate estimates     #
+
+##########################################################################################
+
+
 library(poLCA) 
 library(dplyr) 
 library(ggplot2)
 library(reshape2)
 library(xtable)
-library(tables)
-library(superheat)
-library(plot.matrix)
 library(RColorBrewer)
 library(reshape2)
 
@@ -54,6 +57,8 @@ ggplot(covlongmatrel, aes(x=classes, y=reorder(covariate, desc(covariate)), fill
 ggsave("absrelbiascovar.png")
 
 
+
+
 #CIWDITH COVAR
 myarray <- array(unlist(ciwidth_z), dim=c(4,4,8)) 
 dimnames(myarray) <- list(classes = seq(4), covariate=seq(4), condition =seq(8)) #4 classes, nconds=8
@@ -89,8 +94,6 @@ ggsave("ciwidthcovar.png")
 
 
 
-
-#COVERAGE COVAR  #-> nieuwe kleuren, groen = tussen 0.92 en 0.97, rest is rood? (of erboven donkergroen?)
 myarray <- array(unlist(coverage_z), dim=c(4,4,8)) #use bias data
 dimnames(myarray) <- list(classes = seq(4), covariate=seq(4), condition =seq(8)) #4 classes, nconds=8
 covlongmatCOV <- melt(myarray, varnames=c("classes", "covariate", "condition"))
@@ -153,8 +156,9 @@ ggplot(covlongmatRMSE,  aes(x=classes, y=reorder(covariate, desc(covariate)), fi
         legend.text = element_text(size=15),legend.title = element_text(size=20), 
         legend.key=element_rect(size=2), legend.key.size = unit(2, "cm"),
         axis.text = element_text(size=10))+ 
-  geom_tile()+scale_fill_distiller(direction = 1, palette="Reds")+
+  geom_tile()+scale_fill_distiller(direction = 1, palette="Reds", limits=c(0,0.032))+
   geom_text(aes(label=format(round(value,3),nsmall=3)), size=5) +
   facet_grid(condition~method) #
+
 
 

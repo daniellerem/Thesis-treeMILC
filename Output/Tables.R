@@ -1,21 +1,38 @@
+##########################################################################################
 
+#       Script to make the tables of the results of MILC and tree-MILC                   #
+
+##########################################################################################
+
+
+#necessary packages
+library(xtable)
 library(knitr)
-print(xtable(ftable2data.frame(bias_x_rel)),include.rownames=FALSE)
+library(stats)
 
-#TABLES
+
+#Table 6; population estimates, class sizes
+xtable(digits=4,   (matrix(unlist(prop_true),  nrow=4, ncol = 8)))
+
+#Table 7; population estimates, class-covariate cross-tables
+
+
+
+#TABLE 8: results for the latent class sizes for MILC and treeMILC in terms of four performance measures
 xtable(digits=4, rbind(
-  (matrix(unlist(bias_x_rel),  nrow=4, ncol = 8)), 
+  (matrix(unlist(bias_x_rel),  nrow=4, ncol = 8)), #MARE (mean absolute relative error)
   (matrix(unlist(bias_x_relTREE),  nrow=4, ncol = 8)), 
-  (matrix(unlist(rmse_x),  nrow=4, ncol = 8)),
+  (matrix(unlist(rmse_x),  nrow=4, ncol = 8)), #rmse
   (matrix(unlist(rmse_xTREE),  nrow=4, ncol = 8)), 
   (matrix(unlist(cover),  nrow=4, ncol = 8)), #coverage
   (matrix(unlist(coverTREE),  nrow=4, ncol = 8)), 
   (matrix(unlist(ciwidth),  nrow=4, ncol = 8)), 
   (matrix(unlist(ciwidthTREE),  nrow=4, ncol = 8)) )) #ciwidth
 
-matrix(unlist(bias_x_rel), nrow=4, ncol = 8)
 
-t(matrix(unlist(bias_x_rel),  nrow=4, ncol = 8))
+#Table 9: Results of accurac performance measures for the cross tables
+
+
 
 #TABLE TREE MILC prop beide
 xtable(digits=4, rbind(t(matrix(unlist(bias_x_rel),  nrow=4, ncol = 8)), t(matrix(unlist(bias_x_relTREE),  nrow=4, ncol = 8)), 
@@ -61,6 +78,5 @@ ftable(digits=5, rmse,bias,coverage, row.vars = cbind("classes", "rmse", "bias",
 ftable(digits=5, row.vars = , x=rbind(bias=t(matrix(unlist(bias_x_rel), ncol=4)), 
                                       rmse=t(matrix(unlist(rmse_x), ncol=4)),
                                       cov=t(matrix(unlist(ciwidth), ncol=4)) )) #coverage
-# ciwidth=t(matrix(unlist(cover), ncol=4)))) #ciwidth
-#sesd=t(matrix(unlist(sesd), ncol=4))))#se/sd
+
 
