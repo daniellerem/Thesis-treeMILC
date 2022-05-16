@@ -57,7 +57,7 @@ The simulation study consists of three parts:
 3. Calculate performance measures
 
 These parts can be found in the folders `Data`, `Scripts` and `post-processing`. 
-A fourth folder `Output` contains scripts to generate the tables and figures presented in the thesis.
+A fourth folder `Output` contains scripts to generate the tables and figures presented in the thesis. A fifth folder `ThesisText` contains files to reproduce the thesis manuscript. 
 
 
 
