@@ -25,7 +25,7 @@ In this project a simulation study is performed to compare the performance, in t
 3) type of error the covariate correlates with (selection or measurement error).
 This results in a 2 x 2 x 2 design with eight conditions.
 
-<img src="/ThesisTableConditions.png" alt="Overview simulation conditions" style="height: 100px; width:100px;"/>
+<img src="/ThesisTableConditions.png" alt="Overview simulation conditions" style="height: 400px; width:800px;"/>
 
 
 
