@@ -66,23 +66,25 @@ The repository contains the following files:
 | -----------------          | ------------- |
 |Data          |Folder with scripts for data generation|
 |/TOP_generate_data.R       |Script to generate the data for the simulation study|
-|/Fun1a_specify_simconditions.R  |Function for specifying the simulation conditions|
-|/Fun1b_simulate_dataset.R       |Function for the dataset generation|
-|/Fun1c_generate_bootstraps.R    |Function to draw the bootstraps (first MILC step)|
+|/FUN_specify_simconditions.R  |Function for specifying the simulation conditions|
+|/FUN_simulate_dataset.R       |Function for the dataset generation|
+|/FUN_generate_bootstraps.R    |Function to draw the bootstraps (first MILC step)|
 |Scripts         |Folder with scripts for application of MILC and tree-MILC|
-|/2_TOP_MILC.R                 |Script to apply MILC on the simulated datasets|
-|/2_TOP_MILC_parallel.R        |Parallelised script to apply MILC| 
-|/2a_LC4_model.R               |Function for MILC with 4 classes|
-|/2_TOP_treeMILC.R                 |Script to apply tree-MILC on the simulated datasets|
-|/2_TOP_treeMILC_parallel.R        |Parallelised script to apply tree-MILC| 
-|/2b_LC2sel_model.R            |Function for the selection error part of tree-MILC|
-|/2c_LC3meas_model.R            |Function for the measurement error part of tree-MILC|
-|3_TOP_PerformanceMeasures       |Folder with scripts for calculation of performance measures|
-|/3a_proportions.R              |Function to calculate measures for class size estimates|
-|/3b_covariates.R           |Function to calculate measures for class-covariate estimates|
+|/TOP_MILC.R                 |Script to apply MILC on the simulated datasets|
+|/TOP_MILC_parallel.R        |Parallelised script to apply MILC| 
+|/FUN_LC4.R               |Function for MILC with 4 classes|
+|/TOP_treeMILC.R                 |Script to apply tree-MILC on the simulated datasets|
+|/TOP_treeMILC_parallel.R        |Parallelised script to apply tree-MILC| 
+|/FUN_LC2sel.R            |Function for the selection error part of tree-MILC|
+|/FUN_LC3meas.R            |Function for the measurement error part of tree-MILC|
+|Post-processing       |Folder with scripts for calculating the performance measures from the obtained estimates|
+|TOP_PerformanceMeasures       |Folder with scripts for calculation of performance measures|
+|/FUN_proo_estimates.R              |Function to calculate measures for class size estimates|
+|/FUN_cov_estimates.R           |Function to calculate measures for class-covariate estimates|
 |Output       |Folder with scripts for producing tables and figures|
 |/Tables.R             |Script to create tables of results|
-|/Figures.R               |Script to create figures of the results|
+|/Plots_prop_estimates.R               |Script to create figures of the results for the classsize estimates|
+|/Plots_cov_estimates.R               |Script to create figures of the results for the covariate-class cross-tables|
 |ThesisDanielleTreeMILC.pdf          |Thesis manuscript|
 
 

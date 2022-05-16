@@ -62,7 +62,7 @@ for(i in 1:nconds){
     covar_nsim_true[[i]][,,j]    <-  prop.table(table(longdat[[i]][[j]]$trueclass, longdat[[i]][[j]]$Y5))
   }#end loop over nsim
   covar_true[[i]]                <-  apply(covar_nsim_true[[i]], MARGIN = c(1, 2), FUN = mean)   # average over nsim
-  prop_true[[i]]                 <-  colMeans(bind_rows(prop_x_nsim_true[[i]][[j]])) 
+  prop_true[[i]]                 <-  colMeans(bind_rows(prop_x_nsim_true[[i]])) 
 }#end loop over nconds
 
 save(covar_true, file = "SimulatedCovariates.RData")                            #the class size estimates

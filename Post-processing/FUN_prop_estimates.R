@@ -1,3 +1,11 @@
+
+##########################################################################################
+
+#      Function to calculate CI interval performance measures for the class sizes        #
+
+##########################################################################################
+
+
 coverage = function(prop_boot,  prop, pop, nsize, nboot, nsim){                 #prop_boot are the results from the methods for each bootstrap sample
                                                                                 #prop are the pooled estimates per simulation iteration 
                                                                                 #pop is the population value

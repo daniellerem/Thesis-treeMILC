@@ -1,3 +1,10 @@
+
+#########################################################################################################
+
+#     Function to calculate CI interval performance measures for the class-covariate cross-tables       #
+
+#########################################################################################################
+
 covariates = function(covar_b, covar_s, covar_pop, nsize, nboot, nsim){
   
 
