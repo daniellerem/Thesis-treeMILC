@@ -7,7 +7,7 @@ Last updated: 16-5-2022
 
 Thesis: Comparing the performance of MILC and tree-MILC to estimate and correct for multiple sources of errors in combined datasets: A simulation study
 
-Student: Daniëlle Remmerswaal
+Student: DaniÃ«lle Remmerswaal
 
 Supervisors: Prof. Dr. Ton de Waal & Dr. Laura Boeschoten
 
@@ -17,7 +17,7 @@ Institution: Department of Methodology and Statistics, Utrecht University, the N
 ---
 # Introduction
 
-This repository contains all necessary files to replicate the simulation study for the MSc thesis "Comparing the performance of MILC and tree-MILC to estimate and correct for multiple sources of errors in combined datasets: A simulation study" by Daniëlle Remmerswaal. 
+This repository contains all necessary files to replicate the simulation study for the MSc thesis "Comparing the performance of MILC and tree-MILC to estimate and correct for multiple sources of errors in combined datasets: A simulation study" by DaniÃ«lle Remmerswaal. 
 
 In this project a simulation study is performed to compare the performance, in terms of accuracy and confidence interval measures, of MILC and tree-MILC. Eight different versions of a combined dataset containing 4 indicator variables and one covariate with four categories, and four latent classes are generated - they are referred to as the simulation conditions. The conditions differ regarding the following three factors:
 1) level of selection error (5 or 20%)
@@ -87,7 +87,7 @@ The repository contains the following files:
 |/Plots_prop_estimates.R               |Script to create figures of the results for the classsize estimates|
 |/Plots_cov_estimates.R               |Script to create figures of the results for the covariate-class cross-tables|
 |ThesisDanielleTreeMILC.pdf          |Thesis manuscript|
-|ThesisText                          | Folder for .tex files to produce the thesis pdf|
+|ThesisText                          | Folder for .tex files to produce the thesis manuscript|
 
 
 
@@ -129,5 +129,5 @@ All the data is simulated. The research protocol has been approved by the Ethica
 
 
 # Access
-This archive is publicly available on Github: https://github.com/daniellerem/Thesis-treeMILC . No external data is necessary, all data is generated with R code. For any questions or comments, you can contact Daniëlle Remmerswaal (d.m.remmerswaal@uu.nl). 
+This archive is publicly available on Github: https://github.com/daniellerem/Thesis-treeMILC . No external data is necessary, all data is generated with R code. For any questions or comments, you can contact DaniÃ«lle Remmerswaal (d.m.remmerswaal@uu.nl). 
 
