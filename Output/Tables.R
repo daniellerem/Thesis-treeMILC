@@ -58,7 +58,7 @@ latextables8
 #the necessary elements are the following: \hline and \multirow{8}{*}{[conditionnr]} before each condition
 # & \multirow{4}{*}{MILC} before the first four lines of each condition, 
 #and & \multirow{4}{*}{tree-MILC} before the last four lines of each condition
-#if wanted, the template for the table can be send by the project manager (see readme)
+#if wanted, the template for the table can be found in the .tex file in the folder  `ThesisText`
 
 #Table 9: Results of accuracy performance measures for the cross tables
  

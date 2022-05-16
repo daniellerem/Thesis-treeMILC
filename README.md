@@ -44,6 +44,7 @@ foreach 1.5.2\
 rngtools 1.5.2\
 ggplot2 3.3.5\
 xtable 1.8-4\
+stats 3.6.2
 
 
 
@@ -79,13 +80,14 @@ The repository contains the following files:
 |/FUN_LC3meas.R            |Function for the measurement error part of tree-MILC|
 |Post-processing       |Folder with scripts for calculating the performance measures from the obtained estimates|
 |TOP_PerformanceMeasures       |Folder with scripts for calculation of performance measures|
-|/FUN_proo_estimates.R              |Function to calculate measures for class size estimates|
+|/FUN_prop_estimates.R              |Function to calculate measures for class size estimates|
 |/FUN_cov_estimates.R           |Function to calculate measures for class-covariate estimates|
 |Output       |Folder with scripts for producing tables and figures|
 |/Tables.R             |Script to create tables of results|
 |/Plots_prop_estimates.R               |Script to create figures of the results for the classsize estimates|
 |/Plots_cov_estimates.R               |Script to create figures of the results for the covariate-class cross-tables|
 |ThesisDanielleTreeMILC.pdf          |Thesis manuscript|
+|ThesisText                          | Folder for .tex files to produce the thesis pdf|
 
 
 
@@ -108,7 +110,7 @@ To reproduce the simulation study, follow these steps:
 The simulations take a long time, for 100 simulation iterations (nsim=100) it takes apprximately 3.5 hours for MILC, and 8 hours for tree-MILC to run. For this reason, parallelized scripts are designed to be able to run a simulation study with 1000 iterations in a feasible time. The workers of the cores in the scripts are divided over the conditions. Since there are eight conditions (nconds = 8) in this study, the number of cores useful to speed up the process are powers of 2 with a maximum of 2^3=8. Using 4 cores takes the same time as using 5, 6 or 7 cores, all make the process approximately 4 times as fast. 
 The sequential and parallelized versions of the scripts give the same results since in both versions a seed (123) is set.
 
-## Calculate performance measures (`Folder Post-processing`)
+## Calculate performance measures (Folder `Post-processing`)
 1. Make sure the datafiles of the population estimates (from folder `Data`), and of the MILC and tree-MILC estimates (from folder `Scripts`) are loaded
 2. Run script `CalculatePerformanceMeasues.R` to - as the name says-  calculate the performance measures for both methods. 
 3. Save the whole workspace to be able to use it to create the figures and tables (folder `Output`)
