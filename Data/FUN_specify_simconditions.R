@@ -4,19 +4,19 @@ selection_error = list(
        matrix(c(.95, .05, .05, .95), ncol=2, byrow=T),
        matrix(c(.95, .05, .05, .95), ncol=2, byrow=T),
        matrix(c(.5,  .5,  .5,  .5),  ncol=2, byrow=T)
-      ), 
+  ), 
   list(matrix(c(.95, .05, .05, .95), ncol=2, byrow=T),                      # 5% SE + strong
        matrix(c(.95, .05, .05, .95), ncol=2, byrow=T),
        matrix(c(.95, .05, .05, .95), ncol=2, byrow=T),
        matrix(c(.95, .05, .05, .95), ncol=2, byrow=T),
        matrix(c(.7,  .3,  .3,  .7),  ncol=2, byrow=T)
-       ),
+  ),
   list(matrix(c(.8,  .2,  .2,  .8),  ncol=2, byrow=T),                      # 20% SE + weak
        matrix(c(.8,  .2,  .2,  .8),  ncol=2, byrow=T),
        matrix(c(.8,  .2,  .2,  .8),  ncol=2, byrow=T),
        matrix(c(.8,  .2,  .2,  .8),  ncol=2, byrow=T),
        matrix(c(.5,  .5,  .5,  .5),  ncol=2, byrow=T)
-       ), 
+  ), 
   list(matrix(c(.8,  .2,  .2,  .8),  ncol=2, byrow=T),                      # 20% SE + strong
        matrix(c(.8,  .2,  .2,  .8),  ncol=2, byrow=T),
        matrix(c(.8,  .2,  .2,  .8),  ncol=2, byrow=T),
@@ -71,4 +71,3 @@ simconds = function(){
               D_sel20meas20_covsel,
               D_sel20meas20_covmeas
   ))}
-
